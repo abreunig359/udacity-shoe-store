@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="shoeListViewModel"
-            type="com.udacity.shoestore.ShoeListViewModel" />
+            type="com.udacity.shoestore.screens.shoelist.ShoeListViewModel" />
     </data>
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ShoeListFragment">
+        tools:context=".screens.shoelist.ShoeListFragment">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/view_shoe_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <ScrollView
+            <LinearLayout
+                android:id="@+id/shoes_list_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="16dp">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginTop="@dimen/fragment_vertical_margin"
+                android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+                android:layout_marginBottom="@dimen/fragment_vertical_margin"
+                android:orientation="vertical" />
+        </ScrollView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/add_shoe"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:contentDescription="@string/add_shoe"
-                        android:focusable="true"
-                        android:src="@drawable/ic_add" />
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_add_shoe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+            android:layout_marginBottom="@dimen/fragment_horizontal_margin"
+            android:clickable="true"
+            android:contentDescription="@string/add_shoe"
+            android:focusable="true"
+            android:src="@drawable/ic_add" />
 
     </FrameLayout>
 </layout>
